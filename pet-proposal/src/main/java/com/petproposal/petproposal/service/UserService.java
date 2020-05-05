@@ -9,9 +9,9 @@ import com.petproposal.petproposal.repository.UserRepository;
 
 @Service
 public class UserService {
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
 
-	private UserConverter userConverter;
+	private final UserConverter userConverter;
 
 	private PasswordEncoder passwordEncoder;
 
