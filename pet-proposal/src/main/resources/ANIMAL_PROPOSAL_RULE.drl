@@ -1,0 +1,75 @@
+import com.petproposal.petproposal.model.Animal;
+import com.petproposal.petproposal.dto.AnimalDto;
+
+global com.petproposal.petproposal.model.Animal animal;
+dialect  "mvel"
+
+rule "Check for needed space."
+    when
+        animalDtoInstance:AnimalDto(animal.spaceNeeded.ordinal <= spaceNeeded.ordinal);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for needed time."
+    when
+        animalDtoInstance:AnimalDto(animal.timeNeeded.ordinal <= timeNeeded.ordinal);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for potential noise."
+    when
+        animalDtoInstance:AnimalDto(animal.potentialNoise.ordinal <= potentialNoise.ordinal);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for money needed."
+    when
+        animalDtoInstance:AnimalDto(animal.moneyNeeded.ordinal <= moneyNeeded.ordinal);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for pettable."
+    when
+        animalDtoInstance:AnimalDto(animal.pettable == pettable);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for absence from home."
+    when
+        animalDtoInstance:AnimalDto(animal.absenceFromHome.ordinal <= absenceFromHome.ordinal);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for activities."
+    when
+        animalDtoInstance:AnimalDto(animal.activities == activities);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for learning tricks."
+    when
+        animalDtoInstance:AnimalDto(animal.learningTricks == learningTricks);
+    then
+        animal.setResult(animal.getResult() + 1);
+end
+
+rule "Check for hair alergy."
+    when
+        animalDtoInstance:AnimalDto(animal.hairAlergy == true && hairAlergy == true);
+    then
+        animal.setResult(0L);
+end
+
+rule "Check for feather alergy."
+    when
+        animalDtoInstance:AnimalDto(animal.featherAlergy == true && featherAlergy == true);
+    then
+        animal.setResult(0L);
+end

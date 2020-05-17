@@ -7,8 +7,9 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.petproposal.petproposal.PetProposalApplication;
 import com.petproposal.petproposal.model.Role;
-import com.petproposal.proposal.validation.Password;
+import com.petproposal.petproposal.validation.Password;
 
 public class UserDto implements AbstractDto {
 
