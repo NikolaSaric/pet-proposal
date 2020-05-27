@@ -7,8 +7,9 @@ koja je trenutno u fazi razvoja. I baze podataka, trenutno se koristi H2 baza, u
 
 Pokretanje projekta: za kontrolnu tacku 1 dovoljno je update-ovati Maven dependencies Spring aplikacije i pokrenuti je.
 Aplikacija automatski podize H2 bazu i skriptu koja dodaje admina i nekoliko zivotinja.
+Angular aplikacija se pokrece pomocu ng serve komande i moguce joj je pristupiti preko http://localhost:4200
 
-Za testiranje dodavanja novih zivotinja i pokretanja pravila koristi se Postman.
+Za testiranje dodavanja novih zivotinja i pokretanja pravila koristi se Postman (Dodat je front-end za pokretanje pravila).
 
 POST http://localhost:8080/api/animals sluzi za dodavanje novih zivotinja.
 
