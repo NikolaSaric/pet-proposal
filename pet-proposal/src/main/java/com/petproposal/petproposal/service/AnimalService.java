@@ -1,5 +1,7 @@
 package com.petproposal.petproposal.service;
 
+import com.petproposal.petproposal.dto.ResultDto;
+import com.petproposal.petproposal.dto.UserInfoDto;
 import com.petproposal.petproposal.model.Animal;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -9,6 +11,7 @@ import com.petproposal.petproposal.converter.AnimalConverter;
 import com.petproposal.petproposal.dto.AnimalDto;
 import com.petproposal.petproposal.repository.AnimalRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,10 +48,9 @@ public class AnimalService {
         animalRepository.deleteById(id);
     }
 
-    public String proposeAnimal(AnimalDto userInfo) {
+    public List<ResultDto> proposeAnimal(UserInfoDto userInfo) {
         List<Animal> animals = animalRepository.findAll();
-
-
+        List<ResultDto> resultDtos = new ArrayList<>();
 
         for (Animal a : animals) {
             KieSession kieSession = kieContainer.newKieSession();
@@ -58,8 +60,10 @@ public class AnimalService {
             kieSession.dispose();
 
             System.out.println(a.getName() + a.getResult());
+            ResultDto resultDto = new ResultDto(a.getName(), a.getResult());
+            resultDtos.add(resultDto);
         }
 
-        return  "Test!";
+        return resultDtos;
     }
 }

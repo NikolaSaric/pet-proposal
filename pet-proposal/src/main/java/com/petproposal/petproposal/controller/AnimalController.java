@@ -2,16 +2,12 @@ package com.petproposal.petproposal.controller;
 
 import javax.validation.Valid;
 
+import com.petproposal.petproposal.dto.ResultDto;
+import com.petproposal.petproposal.dto.UserInfoDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.petproposal.petproposal.dto.AnimalDto;
 import com.petproposal.petproposal.service.AnimalService;
@@ -21,6 +17,9 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
+import java.util.List;
+
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/api/animals")
 public class AnimalController {
@@ -62,9 +61,9 @@ public class AnimalController {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Animal successfully proposed.")
     })
     @PostMapping(value = "/propose-animal", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> proposeAnimal(
-            @Parameter(description = "Given user data.") @RequestBody @Valid AnimalDto dto) {
+    public ResponseEntity<List<ResultDto>> proposeAnimal(
+            @Parameter(description = "Given user data.") @RequestBody @Valid UserInfoDto dto) {
 
-        return new ResponseEntity<String>(animalService.proposeAnimal(dto), HttpStatus.OK);
+        return new ResponseEntity<List<ResultDto>>(animalService.proposeAnimal(dto), HttpStatus.OK);
     }
 }

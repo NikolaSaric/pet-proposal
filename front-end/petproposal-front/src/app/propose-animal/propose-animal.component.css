@@ -1,0 +1,27 @@
+.card-wrapper{
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.certificateCard {
+    
+    border: solid 1px #5C6BC0 ;
+    box-shadow:  0 0 10px  rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+    -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+    flex: 0 1 calc(23.3% - 22px);
+    text-align: center;
+    padding: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+}
+
+.certificateCard .field-full-width {
+    width: 100%;
+}
+.m-right{
+    margin-bottom: 5px;
+}

@@ -10,8 +10,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.petproposal.petproposal.PetProposalApplication;
-import com.petproposal.petproposal.validation.Password;
 
 @Entity
 public class User extends AbstractEntity {
@@ -23,7 +21,6 @@ public class User extends AbstractEntity {
 
     @NotNull(message = "User password must not be null.")
     @NotBlank(message = "User password must not be blank.")
-    @Password(message = "User password must at least be 7 chars long, contain 1 uppercase letter, one number and no special characters.")
     @Column(unique = false, nullable = false)
     private String password;
 
